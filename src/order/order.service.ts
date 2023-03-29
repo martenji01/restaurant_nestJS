@@ -20,8 +20,9 @@ export class OrderService {
      
   }
 
-  async create(obj: object) {
+  async create(obj: object, sub: string) {
     try {
+      const subId = this.generateObjectId(sub)
       const todayDate = moment().toISOString();
       const bodyOrder = {
         ...obj,
@@ -32,7 +33,7 @@ export class OrderService {
       if(Object.prototype.hasOwnProperty.call(obj, 'deliveryDate'))
         bodyOrder.deliveryDate = moment(obj['deliveryDate']).toISOString();
       
-      const order = new this.OrderModel(bodyOrder)
+      const order = new this.OrderModel({...bodyOrder, sub: subId})
       await order.save()
       return order;
     } catch (error) {

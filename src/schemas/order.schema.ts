@@ -1,6 +1,7 @@
 import { HydratedDocument, SchemaTypes  } from 'mongoose';
 import {Dish} from './dish.schema'
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
+import { User } from './user.schema';
 
 export type OrderDocument = HydratedDocument<Order>;
 
@@ -27,6 +28,9 @@ export class Order {
 
   @Prop()
   deliveryDate: string;
+
+  @Prop({type: SchemaTypes.ObjectId, ref: 'User', required: true} )
+  sub: User
 
 }
 
