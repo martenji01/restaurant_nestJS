@@ -21,7 +21,8 @@ import { UsersModule } from './users/users.module';
     OrderModule,
     DishModule,
     AuthModule,
-    UsersModule]
+    UsersModule,
+   ],
 })
 
 
