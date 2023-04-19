@@ -16,7 +16,6 @@ export class AuthController {
   @Post('register')
   @Public()
   async register(@Body() req: any) {
-    console.log({req})
     return this.authService.registerNewUser(req)
   }
 

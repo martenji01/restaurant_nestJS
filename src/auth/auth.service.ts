@@ -15,10 +15,10 @@ export class AuthService {
 
   async validateUser(userLogin: UserLoginDto): Promise<UserReturnDto> {
     const user = await this.usersService.findOneReturnPassword(userLogin.username);
-    
+    //console.log({userFound: user})
     if (user && user.password === userLogin.password) {
       const {password, ...result} = user
-      return result;
+      return user;
     }
     return null;
   }
