@@ -23,8 +23,9 @@ export class AuthService {
     return null;
   }
 
-  async registerNewUser(createUserDto : CreateUserDto){
-    return this.usersService.create(createUserDto)
+  async registerNewUser(createUser: any){
+    const user = await this.usersService.create(createUser)
+    return this.login(user)
   }
 
   async login(user: any) {

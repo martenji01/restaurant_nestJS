@@ -7,8 +7,6 @@ import { LocalStrategy } from './strategy/local/local.strategy';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtStrategy } from './strategy/jwt/jwt.strategy';
-import { APP_GUARD } from '@nestjs/core';
-import { RolesGuard } from './strategy/roles/roles.guard';
 
 @Module({
   imports:[UsersModule, PassportModule,
