@@ -1,10 +1,8 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req, Request, Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, UseGuards, Req, Request, Put } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { AuthGuard } from '@nestjs/passport';
 import { JwtAuthGuard } from 'src/auth/strategy/jwt/jwt-auth.guard';
-import { JwtStrategy } from 'src/auth/strategy/jwt/jwt.strategy';
 import { Role } from 'src/auth/strategy/roles/role.enum';
 import { Roles } from 'src/auth/strategy/roles/role.decorator';
 import { RolesGuard } from 'src/auth/strategy/roles/roles.guard';

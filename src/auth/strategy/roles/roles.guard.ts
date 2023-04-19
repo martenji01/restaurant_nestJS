@@ -20,6 +20,8 @@ export class RolesGuard implements CanActivate {
     const req = context.switchToHttp().getRequest();
     
     const userDB = await this.usersService.findOne(req.user.sub)
+    if(userDB.role.includes(Role.Admin))
+        return true
 
     return userDB ? requiredRoles.some((role) => userDB?.role?.includes(role)) : false;
   }
